@@ -13,6 +13,7 @@ namespace Bussines.Constants
         public static string GetMessages = "Sonuc getirildi";
         public static string ProductNameInvalid = "ürün ismi geçersiz";
         public static string MaintenanceTime = "sistem bakımda";
+        public static string NotAddedMessages = "ekleme işlemi başarısız";
     
        
     }
