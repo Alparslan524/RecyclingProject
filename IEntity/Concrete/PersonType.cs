@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using Core.Entities;
+
 namespace Entity.Concrete
 {
-    public class Garbage:IEntity
+    public class PersonType : IEntity
     {
         [Key]
-        public short TypeID { get; set; }
+        public int PersonTypeId { get; set; }
         public string Type { get; set; }
-        public float Carbon { get; set; }
     }
 }
