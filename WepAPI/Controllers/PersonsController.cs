@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WepAPI.Controllers
@@ -22,6 +23,7 @@ namespace WepAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            Thread.Sleep(2000);
             var result = _personService.GetAll();
            if(result.Success)
             {
@@ -33,6 +35,7 @@ namespace WepAPI.Controllers
         [HttpGet("getbyname")]
         public IActionResult GetByName(string name)
         {
+            Thread.Sleep(2000);
             var result = _personService.GetByName(name);
             if(result.Success)
             {
@@ -44,6 +47,7 @@ namespace WepAPI.Controllers
         [HttpPost("add")]
         public IActionResult Add(Person person)
         {
+            Thread.Sleep(2000);
             var result = _personService.Add(person);
             if(result.Success)
             {
@@ -55,6 +59,7 @@ namespace WepAPI.Controllers
         [HttpPost("delete")]
         public IActionResult Delete(Person person)
         {
+            Thread.Sleep(2000);
             var result = _personService.Delete(person);
             if(result.Success)
             {
@@ -66,6 +71,7 @@ namespace WepAPI.Controllers
         [HttpPost("update")]
         public IActionResult Update(Person person)
         {
+            Thread.Sleep(2000);
             var result = _personService.Update(person);
             if(result.Success)
             {

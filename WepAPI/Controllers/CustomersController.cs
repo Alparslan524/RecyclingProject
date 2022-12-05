@@ -12,44 +12,32 @@ namespace WepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GarbagesController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        IGarbageService _garbageService;
-        public GarbagesController(IGarbageService garbageService)
+        ICustomerService _customerService;
+        public CustomersController(ICustomerService customerService)
         {
-            _garbageService = garbageService;
+            _customerService = customerService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);
-            var result = _garbageService.GetAll();
-            if(result.Success)
+            var result = _customerService.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbyname")]
-        public IActionResult GetByName(string name)
-        {
-            Thread.Sleep(2000);
-            var result = _garbageService.GetByName(name);
-            if(result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return BadRequest();
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Garbage garbage)
+        public IActionResult Add(Customer customer)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Add(garbage);
-            if(result.Success)
+            var result = _customerService.Add(customer);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,11 +45,11 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Garbage garbage)
+        public IActionResult Delete(Customer customer)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Delete(garbage);
-            if(result.Success)
+            var result = _customerService.Delete(customer);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -69,16 +57,16 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Garbage garbage)
+        public IActionResult Update(Customer customer)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Update(garbage);
-            if(result.Success)
+            var result = _customerService.Update(customer);
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
+
     }
 }

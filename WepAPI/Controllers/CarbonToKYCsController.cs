@@ -12,44 +12,33 @@ namespace WepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GarbagesController : ControllerBase
+    public class CarbonToKYCsController : ControllerBase
     {
-        IGarbageService _garbageService;
-        public GarbagesController(IGarbageService garbageService)
+        ICarbonToKYCService _carbonToKYCService;
+
+        public CarbonToKYCsController(ICarbonToKYCService carbonToKYCService)
         {
-            _garbageService = garbageService;
+            _carbonToKYCService = carbonToKYCService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);
-            var result = _garbageService.GetAll();
-            if(result.Success)
+            var result = _carbonToKYCService.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbyname")]
-        public IActionResult GetByName(string name)
-        {
-            Thread.Sleep(2000);
-            var result = _garbageService.GetByName(name);
-            if(result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return BadRequest();
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Garbage garbage)
+        public IActionResult Add(CarbonToKYC carbonToKYC)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Add(garbage);
-            if(result.Success)
+            var result = _carbonToKYCService.Add(carbonToKYC);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,11 +46,11 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Garbage garbage)
+        public IActionResult Delete(CarbonToKYC carbonToKYC)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Delete(garbage);
-            if(result.Success)
+            var result = _carbonToKYCService.Delete(carbonToKYC);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -69,16 +58,16 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Garbage garbage)
+        public IActionResult Update(CarbonToKYC carbonToKYC)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Update(garbage);
-            if(result.Success)
+            var result = _carbonToKYCService.Update(carbonToKYC);
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
+
     }
 }

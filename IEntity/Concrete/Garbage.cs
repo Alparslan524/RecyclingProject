@@ -8,8 +8,8 @@ namespace Entity.Concrete
     public class Garbage:IEntity
     {
         [Key]
-        public short TypeID { get; set; }
+        public int TypeID { get; set; }
         public string Type { get; set; }
-        public float Carbon { get; set; }
+        public double Carbon { get; set; }
     }
 }

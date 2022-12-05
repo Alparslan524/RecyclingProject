@@ -11,8 +11,8 @@ namespace Entity.Concrete
         [Key]
         public int CustomerId { get; set; }
         public int PersonId { get; set; }
-        public float Carbon { get; set; }
-        public float KYC { get; set; }
+        public double Carbon { get; set; }
+        public double KYC { get; set; }
         public int SHAId { get; set; }
     }
 }

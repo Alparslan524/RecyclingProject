@@ -12,44 +12,32 @@ namespace WepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GarbagesController : ControllerBase
+    public class SHA256sController : ControllerBase
     {
-        IGarbageService _garbageService;
-        public GarbagesController(IGarbageService garbageService)
-        {
-            _garbageService = garbageService;
-        }
+        ISHA256Service _sHA256Service;
 
+        public SHA256sController(ISHA256Service sHA256Service)
+        {
+            _sHA256Service = sHA256Service;
+        }
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);
-            var result = _garbageService.GetAll();
-            if(result.Success)
+            var result = _sHA256Service.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbyname")]
-        public IActionResult GetByName(string name)
-        {
-            Thread.Sleep(2000);
-            var result = _garbageService.GetByName(name);
-            if(result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return BadRequest();
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Garbage garbage)
+        public IActionResult Add(SHA256 sHA256)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Add(garbage);
-            if(result.Success)
+            var result = _sHA256Service.Add(sHA256);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,11 +45,11 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Garbage garbage)
+        public IActionResult Delete(SHA256 sHA256)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Delete(garbage);
-            if(result.Success)
+            var result = _sHA256Service.Delete(sHA256);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -69,16 +57,15 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Garbage garbage)
+        public IActionResult Update(SHA256 sHA256)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Update(garbage);
-            if(result.Success)
+            var result = _sHA256Service.Update(sHA256);
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
     }
 }

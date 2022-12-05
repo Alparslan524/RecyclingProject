@@ -32,10 +32,29 @@ namespace WepAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
+
             services.AddSingleton<IPersonService, PersonManager>();
             services.AddSingleton<IPersonDal,EfPersonDal>();
+
             services.AddSingleton<IGarbageService, GarbageManager>();
             services.AddSingleton<IGarbageDal, EfGarbageDal>();
+
+            services.AddSingleton<ICustomerService, CustomerManager>();
+            services.AddSingleton<ICustomerDal, EfCustomerDal>();
+
+            services.AddSingleton<ICarbonToKYCService, CarbonToKYCManager>();
+            services.AddSingleton<ICarbonToKYCDal, EfCarbonToKYCDal>();
+
+            services.AddSingleton<IPersonTypeService, PersonTypeManager>();
+            services.AddSingleton<IPersonTypeDal, EfPersonTypeDal>();
+
+            services.AddSingleton<ISHA256Service, SHA256Manager>();
+            services.AddSingleton<ISHA256Dal, EfSHA256Dal>();
+
+            
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +64,7 @@ namespace WepAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -12,44 +12,34 @@ namespace WepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class GarbagesController : ControllerBase
+    public class PersonTypesController : ControllerBase
     {
-        IGarbageService _garbageService;
-        public GarbagesController(IGarbageService garbageService)
+        IPersonTypeService _personTypeService;
+
+        public PersonTypesController(IPersonTypeService personTypeService)
         {
-            _garbageService = garbageService;
+            _personTypeService = personTypeService;
         }
+
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             Thread.Sleep(2000);
-            var result = _garbageService.GetAll();
-            if(result.Success)
+            var result = _personTypeService.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbyname")]
-        public IActionResult GetByName(string name)
-        {
-            Thread.Sleep(2000);
-            var result = _garbageService.GetByName(name);
-            if(result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return BadRequest();
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Garbage garbage)
+        public IActionResult Add(PersonType personType)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Add(garbage);
-            if(result.Success)
+            var result = _personTypeService.Add(personType);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,11 +47,11 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Garbage garbage)
+        public IActionResult Delete(PersonType personType)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Delete(garbage);
-            if(result.Success)
+            var result = _personTypeService.Delete(personType);
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -69,16 +59,15 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Garbage garbage)
+        public IActionResult Update(PersonType personType)
         {
             Thread.Sleep(2000);
-            var result = _garbageService.Update(garbage);
-            if(result.Success)
+            var result = _personTypeService.Update(personType);
+            if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
-
         }
     }
 }
