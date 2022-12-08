@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entity.Concrete;
+using Entity.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,5 +14,6 @@ namespace Bussines.Abstract
         IResult Add(Person person);
         IResult Update(Person person);
         IDataResult<Person> GetByName(string PersonName);
+        IDataResult<List<PersonDetailDto>> GetPersonDetailDtos();
     }
 }

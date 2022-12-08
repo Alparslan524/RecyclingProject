@@ -20,6 +20,19 @@ namespace WepAPI.Controllers
         {
             _personService = personService;
         }
+
+        [HttpGet("getpersondetail")]
+        public IActionResult GetPersonDetailDtos()
+        {
+            Thread.Sleep(2000);
+            var result = _personService.GetPersonDetailDtos();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
         [HttpGet("getall")]
         public IActionResult GetAll()
         {

@@ -3,6 +3,7 @@ using Bussines.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,6 +41,11 @@ namespace Bussines.Concrete
         {
             var result = _personDal.GetAll(P=> P.FirstName == PersonName);
             return new SuccessDataResult<Person>(Messages.GetMessages);
+        }
+
+        public IDataResult<List<PersonDetailDto>> GetPersonDetailDtos()
+        {
+            return new SuccessDataResult<List<PersonDetailDto>>(_personDal.GetPersonDetailDtos(), Messages.PersonDetailListed);
         }
 
         public IResult Update(Person person)

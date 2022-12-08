@@ -6,16 +6,16 @@ namespace Bussines.Constants
 {
     public static class Messages
     {
-        public static string AddedMessages = "ekleme işlemi başarılı";
-        public static string DeletedMessages = "silme işlemi başarılı";
-        public static string UpdatedMessages = "güncelleme işlemi başarılı";
-        public static string GetAllMessages = "Listeleme işlemi başarılı";
-        public static string GetMessages = "Sonuc getirildi";
-        public static string ProductNameInvalid = "ürün ismi geçersiz";
-        public static string MaintenanceTime = "sistem bakımda";
-        public static string NotAddedMessages = "ekleme işlemi başarısız";
-    
-       
+        public static string AddedMessages = "Adding successful";
+        public static string DeletedMessages = "Deletion successful";
+        public static string UpdatedMessages = "Update successful";
+        public static string GetAllMessages = "Listing successful";
+        public static string GetMessages = "Result brought";
+        public static string ProductNameInvalid = "Product name is invalid";
+        public static string MaintenanceTime = "system in maintenance";
+        public static string NotAddedMessages = "Add failed";
+
+        public static string PersonDetailListed = "Contact details listed";
     }
 
 }
