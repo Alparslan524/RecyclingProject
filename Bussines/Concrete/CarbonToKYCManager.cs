@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bussines.Concrete
@@ -30,10 +31,10 @@ namespace Bussines.Concrete
             return new SuccessResult(Messages.DeletedMessages);
         }
 
-        public IDataResult<List<CarbonToKYC>> GetAll()
+        public IDataResult<List<CarbonToKYC>>GetAll()
         {
             var result = _carbonToKYCDal.GetAll();
-            return new SuccessDataResult<List<CarbonToKYC>>(result, Messages.GetAllMessages);
+            return new SuccessDataResult<List<CarbonToKYC>>(result.ToList(), Messages.GetAllMessages);
         }
 
         public IResult Update(CarbonToKYC carbonToKYC)

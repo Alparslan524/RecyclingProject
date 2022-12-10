@@ -1,4 +1,5 @@
-﻿using Entity.Concrete;
+﻿using Core.Entities.Concrete;
+using Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,10 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Garbage> Garbages { get; set; }
         public DbSet<Person> Persons { get; set; }
-        public DbSet<PersonType> PersonType { get; set; }
         public DbSet<SHA256> SHA256 { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 
     }
 }

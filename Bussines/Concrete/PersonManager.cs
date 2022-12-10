@@ -6,6 +6,7 @@ using Entity.Concrete;
 using Entity.Dtos;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bussines.Concrete
@@ -34,7 +35,7 @@ namespace Bussines.Concrete
         public IDataResult<List<Person>> GetAll()
         {
             var result = _personDal.GetAll();
-            return new SuccessDataResult<List<Person>>(result, Messages.GetAllMessages);
+            return new SuccessDataResult<List<Person>>(result.ToList(), Messages.GetAllMessages);
         }
 
         public IDataResult<Person> GetByName(string PersonName)

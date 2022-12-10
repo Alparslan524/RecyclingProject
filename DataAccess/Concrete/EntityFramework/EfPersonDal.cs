@@ -20,8 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from p in context.Persons
                              join c in context.Customers
                              on p.PersonId equals c.PersonId
-                             join pt in context.PersonType
-                             on p.PersonTypeId equals pt.PersonTypeId
+                             
                              join s in context.SHA256
                              on c.SHAId equals s.SHAId
                              select new PersonDetailDto
@@ -30,13 +29,10 @@ namespace DataAccess.Concrete.EntityFramework
                                  FirstName = p.FirstName,
                                  LastName = p.LastName,
                                  IdentityNumber = p.IdentityNumber,
-                                 UserName = p.UserName,
-                                 Password = p.Password,
                                  CustomerId = c.CustomerId,
                                  Carbon = c.Carbon,
                                  KYC = c.KYC,
-                                 Sha256 = s.Sha256,
-                                 Type = pt.Type
+                                 Sha256 = s.Sha256
                              };
                 return result.ToList();
             }

@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bussines.Concrete
@@ -34,7 +35,7 @@ namespace Bussines.Concrete
         public IDataResult<List<Garbage>> GetAll()
         {
             var result = _garbageDal.GetAll();
-            return new SuccessDataResult<List<Garbage>>(result, Messages.GetAllMessages);
+            return new SuccessDataResult<List<Garbage>>(result.ToList(), Messages.GetAllMessages);
         }
 
         public IDataResult<Garbage> GetByName(string garbageName)

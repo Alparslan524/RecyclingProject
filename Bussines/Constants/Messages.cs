@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Bussines.Constants
@@ -12,10 +14,19 @@ namespace Bussines.Constants
         public static string GetAllMessages = "Listing successful";
         public static string GetMessages = "Result brought";
         public static string ProductNameInvalid = "Product name is invalid";
-        public static string MaintenanceTime = "system in maintenance";
+        public static string MaintenanceTime = "System in Maintenance";
         public static string NotAddedMessages = "Add failed";
 
         public static string PersonDetailListed = "Contact details listed";
+
+        public static string AuthorizationDenied = "You are not authorized";
+
+        public static string UserRegistered = "User registered";
+        public static string UserNotFound = "User Not Found";
+        public static string PasswordError = "Password Error";
+        public static string SuccessfulLogin = "Successful Login";
+        public static string UserAlreadyExists = "User Already Exists";
+        public static string AccessTokenCreated = "Access Token Created";
     }
 
 }

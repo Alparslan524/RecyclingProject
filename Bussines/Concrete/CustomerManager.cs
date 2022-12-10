@@ -5,6 +5,7 @@ using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bussines.Concrete
@@ -33,7 +34,7 @@ namespace Bussines.Concrete
         public IDataResult<List<Customer>> GetAll()
         {
             var result = _customerDal.GetAll();
-            return new SuccessDataResult<List<Customer>>(result, Messages.GetAllMessages);
+            return new SuccessDataResult<List<Customer>>(result.ToList(), Messages.GetAllMessages);
         }
 
         public IResult Update(Customer customer)

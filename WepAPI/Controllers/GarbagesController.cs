@@ -1,4 +1,5 @@
 ﻿using Bussines.Abstract;
+using Bussines.BussinessAspects.Autofac;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,7 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
+        [SecuredOperation("garbage.add,admin")]
         [HttpPost("add")]
         public IActionResult Add(Garbage garbage)
         {
