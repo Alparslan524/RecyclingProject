@@ -1,4 +1,5 @@
 ﻿using Bussines.Abstract;
+using Bussines.BussinessAspects.Autofac;
 using Bussines.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -20,12 +21,14 @@ namespace Bussines.Concrete
             _garbageDal = garbageDal;
         }
 
+        [SecuredOperation("admin")]
         public IResult Add(Garbage garbage)
         {
             _garbageDal.Add(garbage);
             return new SuccessResult(Messages.AddedMessages);
         }
 
+        [SecuredOperation("admin")]
         public IResult Delete(Garbage garbage)
         {
             _garbageDal.Delete(garbage);
@@ -44,6 +47,7 @@ namespace Bussines.Concrete
             return new SuccessDataResult<Garbage>(result, Messages.GetMessages);
         }
 
+        [SecuredOperation("admin")]
         public IResult Update(Garbage garbage)
         {
             _garbageDal.Update(garbage);
