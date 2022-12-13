@@ -27,9 +27,6 @@ namespace Bussines.DependencyResolvers.Autofac
                 builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
                 builder.RegisterType<EfCustomerDal>().As<ICustomerDal>().SingleInstance();
 
-                builder.RegisterType<PersonManager>().As<IPersonService>().SingleInstance();
-                builder.RegisterType<EfPersonDal>().As<IPersonDal>().SingleInstance();
-
                 builder.RegisterType<SHA256Manager>().As<ISHA256Service>().SingleInstance();
                 builder.RegisterType<EfSHA256Dal>().As<ISHA256Dal>().SingleInstance();
 

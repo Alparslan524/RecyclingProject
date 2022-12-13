@@ -17,7 +17,7 @@ namespace Bussines.Constants
         public static string MaintenanceTime = "System in Maintenance";
         public static string NotAddedMessages = "Add failed";
 
-        public static string PersonDetailListed = "Contact details listed";
+        public static string PersonDetailsListed = "Contact details listed";
 
         public static string AuthorizationDenied = "You are not authorized";
 

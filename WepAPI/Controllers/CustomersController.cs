@@ -68,5 +68,17 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
+
+        [HttpGet("getpersonaldetails")]
+        public IActionResult GetPersonalDetailsDto()
+        {
+            Thread.Sleep(2000);
+            var result = _customerService.GetPersonalDetailsDto();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
     }
 }

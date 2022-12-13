@@ -3,6 +3,7 @@ using Bussines.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,5 +43,12 @@ namespace Bussines.Concrete
             _customerDal.Update(customer);
             return new SuccessResult(Messages.UpdatedMessages);
         }
+
+        public IDataResult<List<PersonalDetailsDto>> GetPersonalDetailsDto()
+        {
+            return new SuccessDataResult<List<PersonalDetailsDto>>(_customerDal.GetPersonalDetailsDtos(), Messages.PersonDetailsListed);
+        }
+
+
     }
 }

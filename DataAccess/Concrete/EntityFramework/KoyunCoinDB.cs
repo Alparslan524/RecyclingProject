@@ -17,7 +17,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<CarbonToKYC> CarbonToKYC { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Garbage> Garbages { get; set; }
-        public DbSet<Person> Persons { get; set; }
         public DbSet<SHA256> SHA256 { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<User> Users { get; set; }
