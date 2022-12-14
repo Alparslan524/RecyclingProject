@@ -11,6 +11,32 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCustomerDal : EfEntityRepositoryBase<Customer, KoyunCoinDB>, ICustomerDal
     {
+        public List<PersonalDetailsDto> GetByEmail(string email)
+        {
+            using (KoyunCoinDB context = new KoyunCoinDB())
+            {
+                var result = from c in context.Customers
+                             join u in context.Users
+                             on c.UserId equals u.Id
+                             join s in context.SHA256
+                             on c.SHAId equals s.SHAId
+                             where u.Email ==  email
+                             select new PersonalDetailsDto
+                             {
+                                 Id = u.Id,
+                                 FirstName = u.FirstName,
+                                 LastName = u.LastName,
+                                 Email = u.Email,
+                                 CustomerId = c.CustomerId,
+                                 Carbon = c.Carbon,
+                                 KYC = c.KYC,
+                                 SHAId = s.SHAId,
+                                 Sha256 = s.Sha256
+                             };
+                return result.ToList();
+            }
+        }
+
         public List<PersonalDetailsDto> GetPersonalDetailsDtos()
         {
             using(KoyunCoinDB context = new KoyunCoinDB())

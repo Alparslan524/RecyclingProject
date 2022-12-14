@@ -78,7 +78,17 @@ namespace WepAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
+        }
+        [HttpGet("getbyemail")]
+        public IActionResult GetByEmail(string email)
+        {
+            var result = _customerService.GetByEmail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
     }
 }

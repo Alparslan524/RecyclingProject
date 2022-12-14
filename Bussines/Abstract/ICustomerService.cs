@@ -15,5 +15,6 @@ namespace Bussines.Abstract
         IResult Update(Customer customer);
 
         IDataResult<List<PersonalDetailsDto>> GetPersonalDetailsDto();
+        IDataResult<List<PersonalDetailsDto>> GetByEmail(string email);
     }
 }

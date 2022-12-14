@@ -49,6 +49,11 @@ namespace Bussines.Concrete
             return new SuccessDataResult<List<PersonalDetailsDto>>(_customerDal.GetPersonalDetailsDtos(), Messages.PersonDetailsListed);
         }
 
+        public IDataResult<List<PersonalDetailsDto>> GetByEmail(string email)
+        {
+            
+            return new SuccessDataResult<List<PersonalDetailsDto>>(_customerDal.GetByEmail(email),"kulanıcı listelendi");
 
+        }
     }
 }

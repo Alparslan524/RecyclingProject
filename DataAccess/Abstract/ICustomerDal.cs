@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
     public interface ICustomerDal : IEntityRepository<Customer>
     {
         List<PersonalDetailsDto> GetPersonalDetailsDtos();
+        List<PersonalDetailsDto>GetByEmail(string email);
     }
 }
