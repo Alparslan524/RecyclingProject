@@ -10,7 +10,6 @@ namespace Entity.Concrete
     {
         [Key]
         public int SHAId { get; set; }
-        public int CustomerId { get; set; }
         public string Sha256 { get; set; }
     }
 }
