@@ -55,5 +55,14 @@ namespace Bussines.Concrete
             return new SuccessDataResult<List<PersonalDetailsDto>>(_customerDal.GetByEmail(email),"kulanıcı listelendi");
 
         }
+
+        public IResult UpdateById( int carbonValue, int id)
+        {
+            Customer customer = new Customer();
+            customer = _customerDal.Get(c => c.CustomerId == id);
+            customer.Carbon = carbonValue;
+            _customerDal.Update(customer);
+            return new SuccessResult("carbon güncellendi");
+        }
     }
 }

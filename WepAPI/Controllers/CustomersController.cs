@@ -90,5 +90,17 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpPost("updateById")]
+        public IActionResult UpdateById( int carbonValue,int id)
+        {
+            Thread.Sleep(2000);
+            var result = _customerService.UpdateById( carbonValue,id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
