@@ -56,13 +56,12 @@ namespace Bussines.Concrete
 
         }
 
-        public IResult UpdateById( int carbonValue, int id)
+
+        public IDataResult<Customer> GetById(int id)
         {
-            Customer customer = new Customer();
-            customer = _customerDal.Get(c => c.CustomerId == id);
-            customer.Carbon = carbonValue;
-            _customerDal.Update(customer);
-            return new SuccessResult("carbon güncellendi");
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == id));
         }
+
+        
     }
 }

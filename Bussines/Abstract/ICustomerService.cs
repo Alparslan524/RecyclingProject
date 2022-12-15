@@ -17,6 +17,7 @@ namespace Bussines.Abstract
         IDataResult<List<PersonalDetailsDto>> GetPersonalDetailsDto();
         IDataResult<List<PersonalDetailsDto>> GetByEmail(string email);
 
-        IResult UpdateById( int carbonValue,int id);
+        
+        IDataResult<Customer> GetById(int id);
     }
 }

@@ -45,7 +45,7 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [SecuredOperation("garbage.add,admin")]
+        [SecuredOperation("admin")]
         [HttpPost("add")]
         public IActionResult Add(Garbage garbage)
         {

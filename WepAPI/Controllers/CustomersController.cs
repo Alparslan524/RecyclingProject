@@ -1,4 +1,5 @@
 ﻿using Bussines.Abstract;
+using Bussines.BussinessAspects.Autofac;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -91,16 +92,18 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("updateById")]
-        public IActionResult UpdateById( int carbonValue,int id)
+
+        [HttpGet("getbyId")]
+        public IActionResult GetById(int id )
         {
-            Thread.Sleep(2000);
-            var result = _customerService.UpdateById( carbonValue,id);
+            var result = _customerService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
+
     }
 }
