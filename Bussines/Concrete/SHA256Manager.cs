@@ -37,6 +37,12 @@ namespace Bussines.Concrete
             return new SuccessDataResult<List<SHA256>>(result.ToList(), Messages.GetAllMessages);
         }
 
+        public IDataResult<SHA256> GetByAdress(string adress)
+        {
+                var result = _sHA256Dal.Get(G => G.Sha256 == adress);
+                return new SuccessDataResult<SHA256>(result, Messages.GetMessages);   
+        }
+
         public IResult Update(SHA256 sha256)
         {
             _sHA256Dal.Update(sha256);

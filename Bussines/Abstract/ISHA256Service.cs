@@ -12,5 +12,6 @@ namespace Bussines.Abstract
         IResult Delete(SHA256 sha256);
         IResult Add(SHA256 sha256);
         IResult Update(SHA256 sha256);
+        IDataResult<SHA256> GetByAdress(string adress);
     }
 }

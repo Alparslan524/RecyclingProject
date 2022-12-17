@@ -67,5 +67,21 @@ namespace WepAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbyadress")]
+        public IActionResult GetByAdress(string adress)
+        {
+            
+            var result = _sHA256Service.GetByAdress(adress);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
+
+
+
     }
 }
