@@ -20,3 +20,7 @@ Türkye'de imalat sanayi işyerleri, maden işletmeleri, termik santraller, orga
 - [GitHub](https://github.com/Alparslan524)
 - [Linkedin](https://www.linkedin.com/in/alparslan-aydoğan-6038771bb/)
 ***
+
+# Kasım İslam Tatlı
+-[GitHub](https://github.com/kasimtt)
+-[Linkedin](www.linkedin.com/in/kasım-islam-tatlı-512019190)
